@@ -24,6 +24,7 @@ public class RegisteredModulePackage implements ReactPackage{
 
         // 这里添加要要注册的模块
         modules.add(new MineModule(reactContext));
+        modules.add(new PackageModule(reactContext));
 
         return modules;
     }

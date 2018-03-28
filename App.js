@@ -38,7 +38,7 @@ export default class App extends Component<Props> {
         </Text>
 
         <TouchableOpacity>
-          <View style={styles.mineModule}>
+          <View style={styles.module}>
             <Button color='pink'
                     title="MineModule Test"
                     onPress={()=>{
@@ -47,6 +47,20 @@ export default class App extends Component<Props> {
             />
           </View>
         </TouchableOpacity>
+
+        <TouchableOpacity>
+            <View style={styles.module}>
+                <Button
+                  color='pink'
+                  title="isInstalled"
+                  onPress={async ()=>{
+                      let isInstalled = await NativeModules.PackageModule.isInstalled('com.tencent.mm')
+                      alert(isInstalled);
+                  }}
+                />
+            </View>
+        </TouchableOpacity>
+
 
       </View>
     );
@@ -70,7 +84,7 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
-  mineModule:{
+    module:{
     marginTop:20
   }
 });
